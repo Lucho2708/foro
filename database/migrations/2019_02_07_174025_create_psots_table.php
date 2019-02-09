@@ -18,6 +18,7 @@ class CreatePsotsTable extends Migration
 
             $table->string('title');
             $table->mediumText('content');
+            $table->string('slug');
             $table->boolean('pending')->default(true);
 
             $table->integer('user_id')->unsigned();

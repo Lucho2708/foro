@@ -18,7 +18,7 @@ class ShowPostTest extends TestCase
       $user->posts()->save($post);
 
       //When
-      $this->visit(route('post.show',$post))
+      $this->visit(route('posts.show',$post))
         ->seeInElement('h1',$post->title)
         ->see($post->content)
         ->see($user->name);
