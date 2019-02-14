@@ -17,6 +17,8 @@ class MarkCommentAsAnswerTest extends TestCase
 
         $comment->markAsAnswer();
 
+        $this->assertTrue($comment->fresh()->answer);
+
         $this->assertFalse($post->fresh()->pending);
 
 
