@@ -36,4 +36,9 @@ class Post extends Model
     {
       return route('posts.show',[$this->id, $this->slug]);
     }
+
+    public function latestComments()
+    {
+      return $this->comments()->orderBy('created_at', 'DES');
+    }
 }
