@@ -18,6 +18,7 @@
     <article class="{{$comment->answer ?  'answer' : ''}}">
       {{ $comment->comment}}
 
+
       @if (Gate::allows('accept', $comment)&& !$comment->answer)
 
         {{!! Form::open(['route'=>['comments.accept',$comment],'method' => 'POST']) !!}}
