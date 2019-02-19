@@ -5,6 +5,7 @@ namespace App;
 use App\User;
 use App\Comment;
 use Illuminate\Database\Eloquent\Model;
+use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Support\Str;
 
 class Post extends Model
@@ -40,5 +41,10 @@ class Post extends Model
     public function latestComments()
     {
       return $this->comments()->orderBy('created_at', 'DES');
+    }
+    
+    public function getSafeHtmlContentAttribute()
+    {
+        return Markdown::convertToHtml(e($this->content));
     }
 }
