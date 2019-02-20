@@ -42,9 +42,14 @@ class Post extends Model
     {
       return $this->comments()->orderBy('created_at', 'DES');
     }
-    
+
     public function getSafeHtmlContentAttribute()
     {
         return Markdown::convertToHtml(e($this->content));
+    }
+
+    public function subscribers()
+    {
+      return $this->belongsToMany(User::class, 'subscriptions');
     }
 }
